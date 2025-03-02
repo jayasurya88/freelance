@@ -1,0 +1,167 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url('../images/hero-bg.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.navbar .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e63946;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e63946;
+}
+
+/* Navbar Toggle Button (Mobile) */
+.menu-toggle {
+    display: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Auth Page Layout */
+.auth-wrapper {
+    display: flex;
+    max-width: 900px;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Left: Login */
+.auth-container {
+    flex: 1;
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+
+.auth-container input {
+    padding: 12px;
+    margin: 12px 0;
+    width: 100%;
+    border: none;
+    background: #1a1a1a;
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.auth-container button {
+    padding: 14px 20px;
+    background: #e63946;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.auth-container button:hover {
+    background: #ff4d64;
+}
+
+/* Right: About */
+.about-section {
+    flex: 1;
+    padding: 40px;
+    background: #242424;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: #e63946;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .auth-container,
+    .about-section {
+        text-align: center;
+        padding: 30px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-container input {
+        padding: 10px;
+    }
+
+    .auth-container button {
+        padding: 10px 16px;
+    }
+
+    .navbar {
+        padding: 15px 30px;
+    }
+}

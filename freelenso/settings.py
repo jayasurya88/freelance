@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',  # PostgreSQL Database Engine
         'NAME': 'freelenso_db',        # Replace with your PostgreSQL database name
         'USER': 'postgres',     # Replace with your PostgreSQL username
-        'PASSWORD': '123456',  # Replace with your PostgreSQL password
+        'PASSWORD': '123',  # Replace with your PostgreSQL password
         'HOST': 'localhost',    # Keep 'localhost' if PostgreSQL is running locally
         'PORT': '5432',         # Default PostgreSQL port
     }

@@ -64,8 +64,8 @@
                 <ul class="s-header__nav">
                     <li><a class="smoothscroll" href="#hero" title="Intro">Home</a></li>
                     <li><a class="smoothscroll" href="#about" title="About">About</a></li>
-                    <li><a class="smoothscroll" href="#services" title="Services">Services</a></li>
-                    <li><a class="smoothscroll" href="#portfolio" title="Works">Works</a></li>
+                    <li><a href="{% url 'login_view' %}" title="Login" style="color: hsla(345, 93%, 44%, 1);">Login</a></li>
+            <li><a href="{% url 'account_selection' %}" title="Register" style="color: hsla(345, 93%, 44%, 1);">Signup</a></li>
                 </ul>
             </nav> <!-- end s-header__nav-wrap -->
 
@@ -73,6 +73,8 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
                 Get In Touch
             </a>
+           
+            
 
         </div> <!-- end header-content -->
 

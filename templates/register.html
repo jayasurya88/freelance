@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Freelenso</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* ================================
+           Global Styling
+        ================================= */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+            url('{% static "images/hero-bg.jpg" %}') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            /* Ensure text is visible */
+        }
+
+
+        /* ================================
+           Navbar Styling
+        ================================= */
+
+
+        /* Navbar Toggle Button (Mobile) */
+        .menu-toggle {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ================================
+           Auth Wrapper (Register + About)
+        ================================= */
+        .auth-wrapper {
+            display: flex;
+            max-width: 1000px;
+            width: 90%;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+            margin-top: 70px;
+        }
+
+        /* ================================
+           Left: Registration Form
+        ================================= */
+        .auth-container {
+            flex: 1;
+            padding: 50px;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-container h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .auth-container p {
+            font-size: 14px;
+            margin-top: 20px;
+        }
+
+        .auth-container input {
+            width: 100%;
+            padding: 14px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: white;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .auth-container button {
+            margin-top: 10px;
+            background: #e63946;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .auth-container button:hover {
+            background: #ff4d64;
+        }
+
+        .auth-container a {
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        /* ================================
+           Right: About Freelenso
+        ================================= */
+        .about-section {
+            flex: 1;
+            padding: 50px;
+            background: #242424;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-section h2 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #e63946;
+        }
+
+        .about-section p {
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        /* ===========================================
+           Responsive Design (Mobile & Tablet Friendly)
+        =========================================== */
+        @media (max-width: 768px) {
+            .auth-wrapper {
+                flex-direction: column;
+                width: 95%;
+            }
+
+            .auth-container,
+            .about-section {
+                padding: 30px;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 20px 0;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-container {
+                padding: 20px;
+            }
+
+            .auth-container h2 {
+                font-size: 24px;
+            }
+
+            .about-section {
+                padding: 20px;
+            }
+
+            .about-section h2 {
+                font-size: 20px;
+            }
+
+            .auth-container input {
+                padding: 12px;
+            }
+
+            .auth-container button {
+                padding: 12px 18px;
+            }
+
+            .navbar {
+                padding: 15px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="s-header">
+
+        <div class="s-header__logo">
+            <a href="index.html"
+                style="text-decoration: none; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold;">
+                <span style="color: white;">Free</span><span style="color: hsla(345, 93%, 44%, 1);">lenso</span>
+            </a>
+        </div>
+
+
+        <div class="s-header__content">
+
+            <nav class="s-header__nav-wrap">
+                <ul class="s-header__nav">
+                    <li><a class="smoothscroll" href="#hero" title="Intro">Home</a></li>
+                    <li><a class="smoothscroll" href="#about" title="About">About</a></li>
+                    <li><a href="{% url 'login_view' %}" title="Login" style="color: hsla(345, 93%, 44%, 1);">Login</a>
+                    </li>
+                    <li><a href="{% url 'account_selection' %}" title="Register"
+                            style="color: hsla(345, 93%, 44%, 1);">Signup</a></li>
+                </ul>
+            </nav> <!-- end s-header__nav-wrap -->
+
+            <a href="mailto:#0" class="btn btn--primary btn--small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z" />
+                </svg>
+                Get In Touch
+            </a>
+
+
+
+        </div> <!-- end header-content -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header>
+
+    <!-- Main Register & About Section -->
+    <div class="auth-wrapper">
+
+        <!-- Left: Register Form -->
+        <div class="auth-container">
+            <h2>Register</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password1" placeholder="Password" required>
+                <input type="password" name="password2" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="{% url 'login_view' %}">Login here</a></p>
+        </div>
+
+        <!-- Right: About Freelenso -->
+        <div class="about-section">
+            <h2>About Freelenso</h2>
+            <p>
+                Freelenso is a platform connecting freelancers and businesses for high-quality digital solutions.
+            </p>
+            <p>
+                Our mission is to foster collaboration, ensuring mutual growth and success.
+            </p>
+        </div>
+
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

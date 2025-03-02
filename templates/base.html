@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Freelenso{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header class="s-header">
+        <div class="s-header__logo">
+            <a href="" style="text-decoration: none; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold;">
+                <span style="color: white;">Free</span><span style="color: hsla(345, 93%, 44%, 1);">lenso</span>
+            </a>
+        </div>
+
+        <div class="s-header__content">
+            <nav class="s-header__nav-wrap">
+                <ul class="s-header__nav" id="nav-links">
+                    <li><a href="" title="Home">Home</a></li>
+                    <li><a href="" title="About">About</a></li>
+                    <li><a href="{% url 'login_view' %}" title="Login" style="color: hsla(345, 93%, 44%, 1);">Login</a></li>
+                    <li><a href="{% url 'account_selection' %}" title="Signup" style="color: hsla(345, 93%, 44%, 1);">Signup</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <a class="s-header__menu-toggle" id="menu-toggle"><span>Menu</span></a>
+    </header>
+
+    <!-- Content Block -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- JavaScript for Toggle Menu -->
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("nav-links").classList.toggle("active");
+        });
+    </script>
+
+</body>
+
+</html>

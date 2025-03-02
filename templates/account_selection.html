@@ -1,0 +1,257 @@
+
+
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join as a Client or Freelancer</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script>
+        function enableButton() {
+            const createButton = document.getElementById("create-account-btn");
+            createButton.style.pointerEvents = "auto"; // Enable button click
+            createButton.classList.add("enabled");
+        }
+
+        function redirectToRegister() {
+            let accountType = document.querySelector('input[name="account_type"]:checked').id;
+            window.location.href = `{% url 'register' %}?type=` + accountType;
+        }
+    </script>
+    <style>
+        /* General Reset */
+        /* General Reset */
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Full-Page Background */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+            url('{% static "images/hero-bg.jpg" %}') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            /* Ensure text is visible */
+        }
+
+        
+        /* Container */
+        .container {
+            background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent background */
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Heading */
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        
+        /* Account Selection */
+        .account-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .account-card {
+            border: 2px solid #555;
+            padding: 15px;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(20, 20, 20, 0.9);
+            color: white;
+        }
+        
+        .account-card:hover, .account-card.selected {
+            background-color: #444;
+            border-color: white;
+            color: white;
+        }
+        
+        /* Icons */
+        .icon {
+            font-size: 24px;
+        }
+        
+        /* Create Account Button */
+        .create-btn {
+            background-color: #ff9800;
+            color: black;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: not-allowed;
+            width: 100%;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .create-btn.enabled {
+            background-color: #ff5722;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .create-btn:hover {
+            background-color: #e64a19;
+        }
+        
+        /* Login Link */
+        .login-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .login-link a {
+            color: #ff9800;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h2 {
+                font-size: 22px;
+            }
+        
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        
+            .account-card {
+                font-size: 14px;
+                padding: 12px;
+                max-width: 100%;
+            }
+        
+            .create-btn {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        
+            .login-link {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 20px;
+            }
+        
+            .container {
+                padding: 15px;
+            }
+        
+            .account-card {
+                font-size: 13px;
+                padding: 10px;
+            }
+        
+            .create-btn {
+                font-size: 13px;
+                padding: 8px 15px;
+            }
+        
+            .login-link {
+                font-size: 11px;
+            }
+        }
+        
+            </style>
+</head>
+<body>
+    <header class="s-header">
+
+        <div class="s-header__logo">
+            <a href="index.html" style="text-decoration: none; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold;">
+                <span style="color: white;">Free</span><span style="color: hsla(345, 93%, 44%, 1);">lenso</span>
+            </a>
+        </div>
+        
+
+        <div class="s-header__content">
+    
+            <nav class="s-header__nav-wrap">
+                <ul class="s-header__nav">
+                    <li><a class="smoothscroll" href="#hero" title="Intro">Home</a></li>
+                    <li><a class="smoothscroll" href="#about" title="About">About</a></li>
+                    <li><a href="{% url 'login_view' %}" title="Login" style="color: hsla(345, 93%, 44%, 1);">Login</a></li>
+            <li><a href="{% url 'account_selection' %}" title="Register" style="color: hsla(345, 93%, 44%, 1);">Signup</a></li>
+                </ul>
+            </nav> <!-- end s-header__nav-wrap -->
+
+            <a href="mailto:#0" class="btn btn--primary btn--small">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 0l-6 22-8.129-7.239 7.802-8.234-10.458 7.227-7.215-1.754 24-12zm-15 16.668v7.332l3.258-4.431-3.258-2.901z"/></svg>
+                Get In Touch
+            </a>
+           
+            
+
+        </div> <!-- end header-content -->
+
+        <a class="s-header__menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header>
+
+    <div class="container">
+        <h2>Join as a client or freelancer</h2>
+
+        <div class="account-options">
+            <label class="account-card" onclick="enableButton(); document.getElementById('client').checked = true;">
+                <span class="icon">👤</span>
+                I'm a client, hiring for a project
+                <input type="radio" name="account_type" id="client">
+            </label>
+
+            <label class="account-card" onclick="enableButton(); document.getElementById('freelancer').checked = true;">
+                <span class="icon">💼</span>
+                I'm a freelancer, looking for work
+                <input type="radio" name="account_type" id="freelancer">
+            </label>
+        </div>
+
+        <a id="create-account-btn" class="create-btn" href="#" onclick="redirectToRegister()" style="pointer-events: none;">Create Account</a>
+
+        <p class="login-link">Already have an account? <a href="{% url 'login_view' %}">Log In</a></p>
+    </div>
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
